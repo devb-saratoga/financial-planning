@@ -30,6 +30,9 @@ All bundled as an archive – client-portfolio-network.
 #### The com.devb.wm.cto Model
 ![UML Diagram of the model](test/art0509.png)
 
+#### Transactions and events
+![UML Diagram of the model](test/art0510.png)
+Note - We acknowledge the the diagram breaks the UML conventions.
 
 ### Running the Financial Planning system
 To run the system, we assume you have Hyperledger Composer running on Docker locally. Please also unarchive the files in [client-portfolio]
@@ -63,3 +66,20 @@ composer-rest-server -c admin@client-portfolio-network -n never -w true
 You can now access the REST API services at localhost at port 3000. 
 </pre>
 
+![UML Diagram of the model](test/art0505.png)
+
+### Hyperledger Composer REST SERVER
+#### Up and running
+
+You can use the client to create clients - C001, C002
+Investments - BITC, ETHR
+And add it to the portfolio P001
+
+![UML Diagram of the model](test/art0507.png)
+Creating a client
+
+![UML Diagram of the model](test/art0508.png)
+Creating an investment
+
+
+### Congratulations
