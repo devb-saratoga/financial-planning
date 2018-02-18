@@ -32,6 +32,7 @@ All bundled as an archive – client-portfolio-network.
 
 #### Transactions and events
 ![UML Diagram of the model](test/art0510.png)
+
 Note - We acknowledge the the diagram breaks the UML conventions.
 
 ### Running the Financial Planning system
@@ -71,14 +72,14 @@ You can now access the REST API services at localhost at port 3000.
 ### Hyperledger Composer REST SERVER
 #### Up and running
 
-You can use the client to create clients - C001, C002
-Investments - BITC, ETHR
-And add it to the portfolio P001
+You can use the client to create clients - C001, C002. Investments - BITC, ETHR. And, add them to the portfolio P001
 
 ![UML Diagram of the model](test/art0507.png)
+
 Creating a client
 
 ![UML Diagram of the model](test/art0508.png)
+
 Creating an investment
 
 
