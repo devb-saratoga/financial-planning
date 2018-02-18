@@ -1,0 +1,98 @@
+{
+    "$class": "com.devb.wm.Portfolio",
+    "portfolioId": "P001",
+    "investments": ["resource:com.devb.wm.Investment#BITC",
+        "resource:com.devb.wm.Investment#ETHR"
+      ],
+    "clients": ["resource:com.devb.wm.Client#C001", 
+        "resource:com.devb.wm.Client#C002"
+    ],
+    "reviewed": false,
+    "goals": {
+      "$class": "com.devb.wm.Goals",
+      "clientId": "C001",
+      "rainyDay": {
+        "$class": "com.devb.wm.Allocation",
+        "moneyMarket": 0,
+        "bonds": 0,
+        "stock": 0,
+        "insurance": 0,
+        "realEstate": 0,
+        "id": "G001"
+      },
+      "intermediate": {
+        "$class": "com.devb.wm.Allocation",
+        "moneyMarket": 0,
+        "bonds": 0,
+        "stock": 0,
+        "insurance": 0,
+        "realEstate": 0,
+        "id": "INT001"
+      },
+      "lifetime": {
+        "$class": "com.devb.wm.Allocation",
+        "moneyMarket": 0,
+        "bonds": 0,
+        "stock": 0,
+        "insurance": 0,
+        "realEstate": 0,
+        "id": "LI001"
+      },
+      "basicLivingExpenses": {
+        "$class": "com.devb.wm.Percent",
+        "amount": 0,
+        "id": "BLE001"
+      },
+      "fixedTerminalExpenses": {
+        "$class": "com.devb.wm.Percent",
+        "amount": 0,
+        "id": "FTE001"
+      },
+      "inflatableExpenses": {
+        "$class": "com.devb.wm.Percent",
+        "amount": 0,
+        "id": "INF001"
+      },
+      "id": "GL001"
+    },
+    "constraints": {
+      "$class": "com.devb.wm.Constraints",
+      "clientId": "C001",
+      "liquidity": {
+        "$class": "com.devb.wm.Percent",
+        "amount": 0,
+        "id": "LQ001"
+      },
+      "marketability": {
+        "$class": "com.devb.wm.Percent",
+        "amount": 0,
+        "id": "MK001"
+      },
+      "threshold": "string",
+      "id": "TH001"
+    },
+    "expectations": {
+      "$class": "com.devb.wm.Expectations",
+      "clientId": "string",
+      "cashFlowBonds": 0,
+      "cashFlowStock": 0,
+      "cashReserve": 0,
+      "id": "EXP001"
+    },
+    "projections": {
+      "$class": "com.devb.wm.Projections",
+      "clientId": "C001",
+      "anticipatedCashFlow": 0,
+      "anticipatedInflation": 0,
+      "anticipatedPortfolioValue": 0,
+      "chanceSuccess": {
+        "$class": "com.devb.wm.Percent",
+        "amount": 0,
+        "id": "PROJ001"
+      },
+      "id": "CN001"
+    },
+    "disclosures": [
+      "Attached"
+    ]
+  }

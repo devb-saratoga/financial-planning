@@ -1,0 +1,250 @@
+/**
+ * Wealth Management - Financial Advisory
+ * (C) 2018 Dev Bhattacharyya, All Rights Reserved
+ * Business analysis by Shrikant Gupta
+ * License - Apache 2.0
+ */
+
+namespace com.devb.wm
+
+/**
+ * Allocation defines the distribution of investement
+ * across money market, bonds and stock
+ */
+concept Allocation {
+  o Double moneyMarket
+  o Double bonds
+  o Double stock
+  o Double insurance
+  o Double realEstate
+}
+
+/**
+ * Percent is a Datatype defined for this model
+ */
+concept Percent {
+  o Double amount 
+}
+
+/**
+ * rainyDay or hidden goals are not explicit goals, they are
+ * more contingency - like an auto accident
+ * Intermediate are those with finite time objectives
+ * like college education, wedding
+ * lifetime goals are meant for retirement
+ */
+concept Goals {
+  o String clientId
+  o Allocation rainyDay
+  o Allocation intermediate
+  o Allocation lifetime
+  o Percent basicLivingExpenses
+  o Percent fixedTerminalExpenses
+  o Percent inflatableExpenses
+}
+
+/**
+ * Constraints are client's aversion to risk
+ * Keeping percent of investments in cash is 
+ * a customer's safe bet
+ */
+concept Constraints {
+  o String clientId
+  o Percent liquidity
+  o Percent marketability
+  o String threshold
+}
+
+/**
+ * Expectations from an investment
+ * what the cash flows are from different types
+ */
+concept Expectations {
+  o String clientId
+  o Double cashFlowBonds
+  o Double cashFlowStock
+  o Double cashReserve
+}
+
+/**
+ * Both market and cash flow projections
+ * also looks into anticipated inflation 
+ * and forecast portfolio value
+ */
+concept Projections {
+  o String clientId
+  o Double anticipatedCashFlow
+  o Double anticipatedInflation
+  o Double anticipatedPortfolioValue
+  o Percent chanceSuccess
+}
+
+/**
+ * Enumerates through different client types
+ */
+enum ClientType {
+  o INDIVIDUAL
+  o PARTY
+  o TRUST
+  o POWEROFATTORNEY
+}
+
+/**
+ * Client or customer defined by an id
+ * Could be a party also
+ * governmentID such as SSN
+ */
+participant Client identified by clientId {
+  o String clientId
+  o ClientType clientType
+  o String firstname
+  o String midInitials optional
+  o String lastname 
+  o String email
+  o String governmentId
+  o String nationality
+  o String driversLicense optional
+  o String address
+  o String city
+  o String postalcode
+  o String state
+  o String countryCode
+}
+
+enum AssetType {
+  o ASSET
+  o LIABILITY
+}
+
+asset Investment identified by assetId {
+  o String assetId
+  o String assetGroup
+  o String assetClass
+  o String assetSummary
+  o String taxJurisdiction
+  o String currency
+  o AssetType assetType
+  o Double value
+  o Double projectedValue
+  o Double interest
+  o Double dividends
+  o Double capitalGains
+}
+
+// Part of retirement and Estate Planning
+asset Estate identified by assetId {
+  o String assetId
+  o String distributionUponDeath
+  o Double value
+  o Double estateTaxes
+  o Double probateFees
+  o String directionsForDisburtion
+}
+
+enum RecurringBasis {
+  o DAILY
+  o WEEKLY
+  o MONTHLY
+  o QUARTERLY
+  o ANNUAL
+  o ONETIMEONLY
+} 
+concept Care {
+  o String careId
+  o String referenceNum
+  o String description
+  o Double cost
+  o RecurringBasis basis
+  o Double monthlyPremium
+  o DateTime expirationDate
+}
+
+concept Insurance {
+  o String insuranceId
+  o String referenceNum
+  o String description
+  o String insuranceType
+  o Double value
+  o RecurringBasis basis
+  o Double premium
+  o DateTime expirationDate
+}
+
+concept DivorcePlan {
+  o String divorcePlanId
+  o String referenceNum
+  o String description
+  o DateTime expirationDate
+}
+
+enum PortfolioStatus {
+  o ACTIVATE
+  o DEACTIVATE
+  o MERGE
+}
+
+asset Portfolio identified by portfolioId {
+  o String portfolioId
+  --> Investment[] investments
+  --> Client[] clients
+  --> Estate[] estates
+  o Boolean reviewed 
+  o Goals goals optional
+  o Constraints constraints optional
+  o Expectations expectations optional 
+  o Projections projections optional
+  o String[] disclosures optional
+  o Care[] care optional
+  o Insurance[] insurances optional
+  o DivorcePlan[] divorcePlans optional
+}
+
+enum AccountStatus {
+  o ACTIVE
+  o INACTIVE
+  o DORMANT
+}
+
+asset Account identified by accountId {
+  o String accountId
+  o AccountStatus status
+  o Client client
+  o Portfolio[] portfolio optional
+  o String[] Notes optional
+  o DateTime beginningDate
+}
+
+transaction SetGoals {
+  --> Client client
+  --> Investment investment
+  o Goals goals optional
+  o Constraints constraints optional
+  o Expectations expectations optional
+  o Projections projections optional
+}
+
+transaction Optimize {
+  --> Portfolio portfolio
+}
+
+transaction ModifyPortfolio {
+  --> Portfolio portfolio
+  o Allocation newAllocation
+}
+
+event ChangeAccount {
+  --> Client client
+  --> Portfolio portfolio
+}
+
+event ChangePortfolioValue {
+  --> Portfolio portfolio
+  o Double oldValue
+  o Double newValue
+}
+
+transaction ClientReview {
+  --> Portfolio portfolio
+  o Boolean review
+  o Boolean machineReview
+}

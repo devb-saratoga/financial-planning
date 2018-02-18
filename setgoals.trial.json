@@ -1,0 +1,91 @@
+{
+    "$class": "com.devb.wm.SetGoals",
+    "client": "resource:com.devb.wm.Client#C001",
+    "investment": "resource:com.devb.wm.Investment#BITC",
+    "goals": {
+      "$class": "com.devb.wm.Goals",
+      "clientId": "C001",
+      "rainyDay": {
+        "$class": "com.devb.wm.Allocation",
+        "moneyMarket": 0,
+        "bonds": 0,
+        "stock": 100,
+        "insurance": 0,
+        "realEstate": 0,
+        "id": "G001"
+      },
+      "intermediate": {
+        "$class": "com.devb.wm.Allocation",
+        "moneyMarket": 50,
+        "bonds": 0,
+        "stock": 50,
+        "insurance": 0,
+        "realEstate": 0,
+        "id": "G002"
+      },
+      "lifetime": {
+        "$class": "com.devb.wm.Allocation",
+        "moneyMarket": 40,
+        "bonds": 40,
+        "stock": 20,
+        "insurance": 10,
+        "realEstate": 90,
+        "id": "LI001"
+      },
+      "basicLivingExpenses": {
+        "$class": "com.devb.wm.Percent",
+        "amount": 1000,
+        "id": "BLE001"
+      },
+      "fixedTerminalExpenses": {
+        "$class": "com.devb.wm.Percent",
+        "amount": 5000,
+        "id": "FTE001"
+      },
+      "inflatableExpenses": {
+        "$class": "com.devb.wm.Percent",
+        "amount": 300,
+        "id": "IN001"
+      },
+      "id": "EXP001"
+    },
+    "constraints": {
+      "$class": "com.devb.wm.Constraints",
+      "clientId": "C001",
+      "liquidity": {
+        "$class": "com.devb.wm.Percent",
+        "amount": 0,
+        "id": "CS001"
+      },
+      "marketability": {
+        "$class": "com.devb.wm.Percent",
+        "amount": 0,
+        "id": "MK001"
+      },
+      "threshold": "string",
+      "id": "TH001"
+    },
+    "expectations": {
+      "$class": "com.devb.wm.Expectations",
+      "clientId": "string",
+      "cashFlowBonds": 0,
+      "cashFlowStock": 0,
+      "cashReserve": 0,
+      "id": "EX001"
+    },
+    "projections": {
+      "$class": "com.devb.wm.Projections",
+      "clientId": "C001",
+      "anticipatedCashFlow": 0,
+      "anticipatedInflation": 0,
+      "anticipatedPortfolioValue": 0,
+      "chanceSuccess": {
+        "$class": "com.devb.wm.Percent",
+        "amount": 0,
+        "id": "SU001"
+      },
+      "id": "PR001"
+    },
+    "transactionId": "TRNT05043487",
+    "timestamp": "2018-02-15T18:56:16.379Z"
+  }
