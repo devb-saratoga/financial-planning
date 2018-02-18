@@ -31,7 +31,11 @@ All bundled as an archive – client-portfolio-network.
 To run the system, we assume you have Hyperledger Composer running on Docker locally. Please also unarchive the files in [client-portfolio]
 
 <pre>
-// create archive
+// get from github
+$ curl -LJO https://github.com/snoborder/financial-planning/archive/master.zip
+// unzip the file and change to the financial planning folder
+
+// create the composer archive
 composer archive create -t dir -n .
 
 // install composer runtime
