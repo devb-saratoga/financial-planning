@@ -28,7 +28,7 @@ The blockchain Hyperledger Composer business application like others contain:
 All bundled as an archive – client-portfolio-network.
 
 #### The com.devb.wm.cto Model
-![UML Diagram of the model](http://test/art0510.png)
+![UML Diagram of the model](test/art0509.png)
 
 
 ### Running the Financial Planning system
