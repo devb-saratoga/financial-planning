@@ -78,7 +78,9 @@ You can use the client to create clients - C001, C002. Investments - BITC, ETHR.
 
 Creating a client
 
-CLI: composer participant add -c admin@client-portfolio-network -d ' 
+CLI
+
+$ composer participant add -c admin@client-portfolio-network -d ' 
 { "$class": "com.devb.wm.Client", "clientId": "C001",
     "firstname": "John",
     "midInitials": "",
