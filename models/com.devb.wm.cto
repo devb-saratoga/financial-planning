@@ -2,6 +2,7 @@
  * Wealth Management - Financial Advisory
  * (C) 2018 Dev Bhattacharyya, All Rights Reserved
  * Business analysis by Shrikant Gupta
+ * Modified 2/24/18 Dev B (privacy info replaced with publickey)
  * License - Apache 2.0
  */
 
@@ -100,15 +101,7 @@ participant Client identified by clientId {
   o String firstname
   o String midInitials optional
   o String lastname 
-  o String email
-  o String governmentId
-  o String nationality
-  o String driversLicense optional
-  o String address
-  o String city
-  o String postalcode
-  o String state
-  o String countryCode
+  o String publicKey
 }
 
 enum AssetType {
